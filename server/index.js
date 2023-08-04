@@ -11,6 +11,10 @@ const app = express();
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
+app.get("/",(req,res) => {
+  res.SetHeader("Access-control-Allow-Credentials","true");
+  res.send("Api is running..");
+});
 
 app.use('/posts', postRoutes);
 
